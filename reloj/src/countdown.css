@@ -1,0 +1,19 @@
+.countDown {
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(223, 217, 217, 0.609);
+    width: 150px;
+}
+h2 {
+    margin-left: 40%;
+}
+.boton{
+    font-size: 10px;
+    background-color: #25b5e2;
+    height: 25px;
+    width: 60px;
+    border-radius: 50px;
+    border: none;
+    color: white; 
+    margin: 5px;
+}
