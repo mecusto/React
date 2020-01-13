@@ -25,6 +25,8 @@ class App extends React.Component<any, IState> {
 
     this.userInserted = this.userInserted.bind(this);
   } 
+
+  //TODO usar setTimeout en vez de setInterval
   conomponentWillMount() {
     clearInterval(this.intervalId);
   }

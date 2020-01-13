@@ -41,15 +41,20 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
-app.get("/books", (_req,res) => {
-    connection.query("SELECT title, year_written, concat(first_name, ' ', last_name) AS author FROM book;",
-    (err, results: IBook[]) => {
-        if (err) {
-            return res.send(err);
-        }
-        res.send({ results });
-    })
- 
+app.get("/books", (req,res) => {
+    try {
+        const token = req.headers.authorization.replace("Bearer ", "");
+        
+        connection.query("SELECT book_code, title, year_written, concat(first_name, ' ', last_name) AS author FROM book;",
+        (err, results: IBook[]) => {
+            if (err) console.log(err);
+            console.log(results);
+            res.send(results);
+        })
+    }
+    catch {
+        res.sendStatus(401);
+      }
 })
 
 app.get("/books/:book_code", (req,res) => {

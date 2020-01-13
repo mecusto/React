@@ -66,30 +66,58 @@ class Form extends React.Component<IProps, IState> {
         return password === value;
     }
 
-    getToken = async () => {
-        const { username, password } = this.state;
-        const { userInserted } = this.props;
-        try {
-            const response = await fetch("http://localhost:3000/auth", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    username: username,
-                    password: password
-                })
-            })
 
-            const { token } = await response.json();
-            this.setState({ token });
-            console.log(token);
-            token ? userInserted(true) : userInserted(false);
-        }
-        catch (err) {
-            console.log(err);
-            userInserted(false);
-           
-        }
+    getToken() {
+        (async () => {
+            const { username, password } = this.state;
+            const { userInserted } = this.props;
+            try {
+                const response = await fetch("http://localhost:3000/auth", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+    
+                const { token } = await response.json();
+                this.setState({ token });
+                console.log(token);
+                token ? userInserted(true) : userInserted(false);
+            }
+            catch (err) {
+                console.log(err);
+                userInserted(false);
+               
+            }
+        })()
     }
+
+    // getToken = async () => {
+    //     const { username, password } = this.state;
+    //     const { userInserted } = this.props;
+    //     try {
+    //         const response = await fetch("http://localhost:3000/auth", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({
+    //                 username: username,
+    //                 password: password
+    //             })
+    //         })
+
+    //         const { token } = await response.json();
+    //         this.setState({ token });
+    //         console.log(token);
+    //         token ? userInserted(true) : userInserted(false);
+    //     }
+    //     catch (err) {
+    //         console.log(err);
+    //         userInserted(false);
+           
+    //     }
+    // }
 
 }
 
