@@ -1,3 +1,15 @@
+## Aplicación con login para gestionar una biblioteca de distintos usuarios
+
+Los usuarios registrados en base de datos pueden logear y modificar la biblioteca de todos los usuarios.
+
+### Desarrollo
+
+Back-end se desarrolla en Nodejs, la base de datos en MySql.
+
+Front en React, con bootstrap.
+
+--------------------------------------------------------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
