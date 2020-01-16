@@ -1,0 +1,33 @@
+connect(mapStateToProps, mapDispatchToProps)() ---> conecta el componente con el store, recibe datos por props, 
+el primer componente es una especie de componente intermedio, y el segundo es el componente que exporta
+
+mapStateToProps ---> es una función que te indica qué recibes por los props, qué quieres almacenar 
+en la store, recoges x de la store y le ejecutar determinada ff 
+
+mapDispatchToProps ---> es una ff que devuelve un objeto. Nos da una ff dispatch que es la que nos 
+va a lanzar las funciones, el objeto contiene las ff que queremos pasar como acciones.
+
+
+Los reducers son funciones que determinan que hacer según las acciones que recibe.
+Las actions son objetos, donde el primer parámetro type es un string, y el segundo es 
+el payload que puede ser cualquier cosa.
+
+
+Crear un archivo actions para declarar las acciones y simplificar el mapDispatchToProps
+En él podemos typear el tipo de interface que se espera recibir en cada acción - mirar actions.ts 
+Se tipea por separado cada acción y después se crea un tipo TAction que englobe todas las 
+interface que se seperan recibir en las acciones. --- ver todosReducer.ts 
+
+Se puede hacer un archivo aparte para agrupar las interface de las acciones.
+
+Incluir redux a un proyecto: modificar index.tsx, crear index.ts en redux (mirar todolist- redux)
+a partir de ahi crear componentes y conectar.
+
+
+interface IProps{}
+
+interface IGlobalProps{} // props que vengan del store
+
+type TProps = IGlobalProps & IProps
+
+class App extends React.PureComponent<TProps, IState>

@@ -1,0 +1,28 @@
+.form {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 10vh;
+    width: 200px;
+    background-color: rgba(240, 236, 220, 0.664);
+    border-radius: 10px;
+}
+
+.box {
+    margin: 2%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 3%;
+    justify-content: space-between;
+}
+
+.botonForm {
+    background-color: transparent;
+    border: 1px #222324 solid;
+    border-radius: 25px;
+    padding: 2px 8px;
+    margin: 10px;
+    color: #1c1d1d;
+}

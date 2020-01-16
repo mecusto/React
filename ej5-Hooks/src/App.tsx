@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 
 import './App.css';
 
@@ -35,7 +35,14 @@ const Counter = () => {
     return()
   }, []); //componentWillUnmount (la ff que está dentro del return)
 
+  // useState usa internamente useReducer
+  // Reducer viene de los reducer de Redux: es una ff que devuelve un valor, recoge dos parámetros
+  // la ff reducer y el estado inicial.
+
+ // useReducer(reducer, initialState) {}
   
+  // usar useReducer cuando se trata de acciones más complejas o cuando hay muchas acciones posibles
+
 
   const add = () => setCounter(c => c + 1);
   const sub = () => setCounter(c => c - 1);
